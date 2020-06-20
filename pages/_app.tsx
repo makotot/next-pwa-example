@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import App from 'next/app'
 import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
@@ -39,6 +40,7 @@ const MyApp = ({ Component, pageProps }) => {
     <div>
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </div>
   )
 }
