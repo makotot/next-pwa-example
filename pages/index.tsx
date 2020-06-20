@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Header } from '../components/Header';
 
 const Index = () => {
   useEffect(() => {
@@ -35,6 +36,7 @@ const Index = () => {
 
   return (
     <div>
+      <Header />
       <div>next pwa..</div>
       <div>next pwa..</div>
     </div>
