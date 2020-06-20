@@ -51,11 +51,6 @@ const Index = () => {
       </Head>
       <div>
         <Box border="1px solid #000">box</Box>
-        <Box>box</Box>
-        <Box>box</Box>
-        <Box>box</Box>
-        <div>next pwa..</div>
-        <div>next pwa..</div>
       </div>
     </>
   )
