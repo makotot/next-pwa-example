@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react'
-import { Header } from '../components/Header';
+import Head from 'next/head'
+import { APP_TITLE } from '../config'
 
 const Index = () => {
   return (
-    <div>
-      <div>next pwa..</div>
-      <div>next pwa..</div>
-    </div>
+    <>
+      <Head>
+        <title>{ APP_TITLE } / index</title>
+      </Head>
+      <div>
+        <div>next pwa..</div>
+        <div>next pwa..</div>
+      </div>
+    </>
   )
 }
 

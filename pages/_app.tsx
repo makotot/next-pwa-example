@@ -5,6 +5,7 @@ import { Footer } from '../components/Footer'
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
+    console.log('useeffect')
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator && (window as any).workbox !== 'undefined') {
       const workbox = (window as any).workbox;
       workbox.addEventListener('installed', (e) => {
