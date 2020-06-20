@@ -50,7 +50,7 @@ const Index = () => {
         <title>{ APP_TITLE } / index</title>
       </Head>
       <div>
-        <Box>box</Box>
+        <Box border="1px solid #000">box</Box>
         <Box>box</Box>
         <Box>box</Box>
         <Box>box</Box>
