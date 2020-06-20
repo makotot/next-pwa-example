@@ -33,7 +33,7 @@ const MyApp = ({ Component, pageProps }) => {
           // User rejected, new verion will be automatically load when user open the app next time.
         }
       })
-      workbox.register()
+      // workbox.register()
     }
   }, [])
 
