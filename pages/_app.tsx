@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import App from 'next/app'
+import { ThemeProvider } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
@@ -38,11 +38,13 @@ const MyApp = ({ Component, pageProps }) => {
   }, [])
 
   return (
-    <div>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 
