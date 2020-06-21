@@ -5,21 +5,28 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
 const useSW = () => {
+  const confirmUpdate = (e) => {
+    const workbox = (window as any).workbox;
+
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator && workbox !== 'undefined') {
+      console.log(`${e.type} triggered`)
+      console.log(e.isUpdate)
+
+      if (e.isUpdate) {
+        if (confirm('A new version is installed, reload to use the new version immediately?')) {
+          window.location.reload()
+          workbox.messageSW({type: 'SKIP_WAITING'})
+        }
+      }
+    }
+  }
+
   useEffect(() => {
     console.log('useeffect')
     if (typeof window !== 'undefined' && 'serviceWorker' in navigator && (window as any).workbox !== 'undefined') {
-      console.log('sw------')
       const workbox = (window as any).workbox;
-      workbox.addEventListener('installed', (e) => {
-        console.log(`${e.type} triggered`)
-        console.log(e.isUpdate)
-        if (e.isUpdate) {
-          if (confirm('A new version is installed, reload to use the new version immediately?')) {
-            window.location.reload()
-            workbox.messageSW({type: 'SKIP_WAITING'})
-          }
-        }
-      })
+      workbox.addEventListener('installed', confirmUpdate)
+      workbox.addEventListener('updatefound', confirmUpdate)
 
       workbox.addEventListener('controlling', event => {
         console.log(`Event ${event.type} is triggered.`)
