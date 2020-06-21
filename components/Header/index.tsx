@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Badge } from '@chakra-ui/core'
+import { Badge, Box, Flex } from '@chakra-ui/core'
 
 export const Header: React.FC = () => (
   <header>
@@ -8,8 +8,14 @@ export const Header: React.FC = () => (
     <Badge>badge</Badge>
     <Badge>badge</Badge>
     <nav>
-      <Link href="/"><a>home</a></Link>
-      <Link href="/example"><a>example</a></Link>
+      <Flex>
+        <Box p="1rem" backgroundColor="tomato">
+          <Link href="/"><a>home</a></Link>
+        </Box>
+        <Box p="1rem">
+          <Link href="/example"><a>example</a></Link>
+        </Box>
+      </Flex>
     </nav>
   </header>
 )

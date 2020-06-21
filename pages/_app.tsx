@@ -48,14 +48,14 @@ const useSW = () => {
       workbox.addEventListener('installed', event => {
         console.log(`Event ${event.type} is triggered.`)
         console.log(event)
-        // if (confirm('A new version is installed, reload to use the new version immediately?')) {
-        //   workbox.addEventListener('controlling', event => {
-        //     window.location.reload()
-        //   })
-        //   workbox.messageSW({type: 'SKIP_WAITING'})
-        // } else {
-        //   // User rejected, new verion will be automatically load when user open the app next time.
-        // }
+        if (confirm('A new version is installed, reload to use the new version immediately?')) {
+          workbox.addEventListener('controlling', event => {
+            window.location.reload()
+          })
+          workbox.messageSW({type: 'SKIP_WAITING'})
+        } else {
+          // User rejected, new verion will be automatically load when user open the app next time.
+        }
       })
 
       workbox.addEventListener('controlling', event => {
@@ -72,6 +72,8 @@ const useSW = () => {
       // NOTE: set skipWaiting to false in next.config.js pwa object
       // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
       workbox.addEventListener('waiting', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
         if (confirm('A new version is installed, reload to use the new version immediately?')) {
           workbox.addEventListener('controlling', event => {
             window.location.reload()
