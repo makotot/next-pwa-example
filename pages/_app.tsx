@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { ThemeProvider } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
@@ -39,15 +39,17 @@ const useSW = () => {
 const useUpdateSWonRouteChange = () => {
   const router = useRouter()
   const updateSW = () => {
+    console.log('routechange')
     navigator.serviceWorker.ready.then((registration) => {
       console.log('update sw')
       registration.update()
     })
   }
   useEffect(() => {
-    router.events.on('routerChangeComplete', updateSW)
+    console.log(router)
+    router.events.on('routeChangeComplete', updateSW)
     return () => {
-      router.events.off('routerChangeComplete', updateSW)
+      router.events.off('routeChangeComplete', updateSW)
     }
   }, [])
 }
