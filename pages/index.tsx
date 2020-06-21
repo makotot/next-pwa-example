@@ -11,9 +11,6 @@ const Index = () => {
       </Head>
       <div>
         <Box border="1px solid #000">box</Box>
-        <Box border="1px solid #000">box</Box>
-        <Box border="1px solid #000">box</Box>
-        <Box border="1px solid #000">box</Box>
       </div>
     </>
   )
