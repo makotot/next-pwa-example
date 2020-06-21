@@ -48,14 +48,14 @@ const useSW = () => {
       workbox.addEventListener('installed', event => {
         console.log(`Event ${event.type} is triggered.`)
         console.log(event)
-        if (confirm('A new version is installed, reload to use the new version immediately?')) {
-          workbox.addEventListener('controlling', event => {
-            window.location.reload()
-          })
-          workbox.messageSW({type: 'SKIP_WAITING'})
-        } else {
-          // User rejected, new verion will be automatically load when user open the app next time.
-        }
+        // if (confirm('A new version is installed, reload to use the new version immediately?')) {
+        //   workbox.addEventListener('controlling', event => {
+        //     window.location.reload()
+        //   })
+        //   workbox.messageSW({type: 'SKIP_WAITING'})
+        // } else {
+        //   // User rejected, new verion will be automatically load when user open the app next time.
+        // }
       })
 
       workbox.addEventListener('controlling', event => {
@@ -68,19 +68,19 @@ const useSW = () => {
         console.log(event)
       })
 
-      // // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
-      // // NOTE: set skipWaiting to false in next.config.js pwa object
-      // // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
-      // workbox.addEventListener('waiting', event => {
-      //   if (confirm('A new version is installed, reload to use the new version immediately?')) {
-      //     workbox.addEventListener('controlling', event => {
-      //       window.location.reload()
-      //     })
-      //     workbox.messageSW({type: 'SKIP_WAITING'})
-      //   } else {
-      //     // User rejected, new verion will be automatically load when user open the app next time.
-      //   }
-      // })
+      // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
+      // NOTE: set skipWaiting to false in next.config.js pwa object
+      // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
+      workbox.addEventListener('waiting', event => {
+        if (confirm('A new version is installed, reload to use the new version immediately?')) {
+          workbox.addEventListener('controlling', event => {
+            window.location.reload()
+          })
+          workbox.messageSW({type: 'SKIP_WAITING'})
+        } else {
+          // User rejected, new verion will be automatically load when user open the app next time.
+        }
+      })
 
       // ISSUE - this is not working as expected, why?
       // I could only make message event listenser work when I manually add this listenser into sw.js file
