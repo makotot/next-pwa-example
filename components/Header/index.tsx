@@ -12,7 +12,7 @@ export const Header: React.FC = () => (
         <Box p="1rem" backgroundColor="tomato">
           <Link href="/"><a>home</a></Link>
         </Box>
-        <Box p="1rem">
+        <Box p="1rem" backgroundColor="tomato">
           <Link href="/example"><a>example</a></Link>
         </Box>
       </Flex>
