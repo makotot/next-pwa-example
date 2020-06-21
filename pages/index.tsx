@@ -7,10 +7,10 @@ const Index = () => {
   return (
     <>
       <Head>
-        <title>{ APP_TITLE } / index</title>
+        <title>index / { APP_TITLE }</title>
       </Head>
       <div>
-        <Box border="1px solid #000">box</Box>
+        <Box border="1px solid #222" p="1rem">box</Box>
       </div>
     </>
   )

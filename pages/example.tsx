@@ -6,7 +6,7 @@ import { Button } from '@chakra-ui/core'
 const Example: React.FC = () => (
   <>
     <Head>
-    <title>{ APP_TITLE } / example</title>
+    <title>example / { APP_TITLE }</title>
     </Head>
     <div>example</div>
     <Button>button</Button>
