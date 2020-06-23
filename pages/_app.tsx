@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { ThemeProvider, Button } from '@chakra-ui/core'
+import { ThemeProvider, Button, Flex } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 
@@ -86,11 +86,13 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <ThemeProvider>
-      <div>
+      <Flex flexDirection="column">
         <Header />
-        <Component {...pageProps} />
+        <div>
+          <Component {...pageProps} />
+        </div>
         <Footer />
-      </div>
+      </Flex>
     </ThemeProvider>
   )
 }
