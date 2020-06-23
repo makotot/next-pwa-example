@@ -10,7 +10,7 @@ const Index = () => {
         <title>index / { APP_TITLE }</title>
       </Head>
       <div>
-        <Box border="1px solid #222" p="1rem">box</Box>
+        <Box border="1px solid #222" p="2rem">box</Box>
       </div>
     </>
   )
