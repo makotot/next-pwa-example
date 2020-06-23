@@ -59,7 +59,12 @@ const useSW = () => {
       })
 
       // never forget to call register as auto register is turned off in next.config.js
-      workbox.register()
+      workbox.register().then((registration) => {
+        console.log('register')
+        registration.addEventListener('updatefound', () => {
+          console.log('updatefound')
+        })
+      })
     }
   }, [])
 }
